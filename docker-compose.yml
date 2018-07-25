@@ -20,4 +20,23 @@ services:
     ports:
       - "8088:8080"
     container_name: tomcat-8-users      
- 
+
+  tomcat85:
+    #restart: always
+    image: tomcat:8.5
+    volumes:
+      - ./tomcat-users-new.xml:/usr/local/tomcat/conf/tomcat-users.xml:Z
+      - ./context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml:Z
+    ports:
+      - "8085:8080"
+    container_name: tomcat-85-users  
+
+  tomcat9:
+    #restart: always
+    image: tomcat:9
+    volumes:
+      - ./tomcat-users-new.xml:/usr/local/tomcat/conf/tomcat-users.xml:Z
+      - ./context.xml:/usr/local/tomcat/webapps/manager/META-INF/context.xml:Z
+    ports:
+      - "8089:8080"
+    container_name: tomcat-9-users 
